@@ -1,6 +1,6 @@
 GDS Website - a Django app
 ==========================
-To get this up and running, first optionally create a virtualenv using python2.7.
+To get this up and running, first optionally create a virtualenv using python3.
 
 Then run `pip install -r req.txt` which should install Django.
 
