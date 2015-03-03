@@ -11,5 +11,14 @@
     <div>
       Here will have a list of all the events sorted by time
     </div>
+    <div class="event-wrapper">
+      {% for event in events %}
+        <div class="event">
+          <h3>{{ event.name }}</h3>
+          <p class="lead">Location: {{ event.location }}</p>
+          {{ event }}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}

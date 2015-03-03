@@ -21,3 +21,8 @@
     background-color: black;
     color: white;
 }
+
+.event {
+    padding: 50px;
+    border: 1px solid black;
+}
