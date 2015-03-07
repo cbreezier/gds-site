@@ -1,21 +1,14 @@
 #home-banner {
-    background-image: url('../assets/bg.png');
     background-position: 50% 100%;
-    padding-top: 200px;
-    padding-bottom: 500px;
+
+    height: 800px;
 
     position: relative;
     top: -20px;
 }
-
-#hero {
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    position: absolute;
-
-    left: 200px;
-    bottom: 400px;
+.banner-item-content {
+    position: relative;
+    top: -600px;
 }
 
 .event {
