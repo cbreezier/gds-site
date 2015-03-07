@@ -8,7 +8,7 @@ def home(request):
     return render(request, 'home.html')
 
 
-def events(request):
+def get_events(request):
     params = {
         'access_token': TEMP_ACCESS_TOKEN,
         'since': 0
@@ -17,8 +17,10 @@ def events(request):
     events = data.json()['data']
     return render(request, 'events.html', {'events': events})
 
+
 def contact(request):
     return render(request, 'contact.html')
+
 
 def resources(request):
     return render(request, 'resources.html')
