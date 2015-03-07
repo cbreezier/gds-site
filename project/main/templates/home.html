@@ -65,33 +65,37 @@
 
     var keyMap = {};
 
+    var transitioning = false;
+
     function animate() {
       var heroX = parseInt($('#hero').css('left'));
       var heroY = parseInt($('#hero').css('bottom'));
 
-      // Gravity
-      if (heroY > ground) {
-        heroSpeedY += gravity;
-      } else {
-        heroSpeedY = 0;
-        heroY = ground;
-      }
+      if (!transitioning) {
+        // Gravity
+        if (heroY > ground) {
+          heroSpeedY += gravity;
+        } else {
+          heroSpeedY = 0;
+          heroY = ground;
+        }
 
-      // Key input
-      heroSpeedX = 0;
-      if (keyMap[68]) {
-        heroSpeedX += speed;
-      }
-      if (keyMap[65]) {
-        heroSpeedX -= speed;
-      }
-      if (heroY <= ground && keyMap[87]) {
-        heroSpeedY = jump;
-      }
+        // Key input
+        heroSpeedX = 0;
+        if (keyMap[68]) {
+          heroSpeedX += speed;
+        }
+        if (keyMap[65]) {
+          heroSpeedX -= speed;
+        }
+        if (heroY <= ground && keyMap[87]) {
+          heroSpeedY = jump;
+        }
 
-      // Move!
-      heroX += heroSpeedX;
-      heroY += heroSpeedY;
+        // Move!
+        heroX += heroSpeedX;
+        heroY += heroSpeedY;
+      }
 
       // Change level
       var currentIndex = $('.item.active').index();
@@ -99,9 +103,18 @@
       if (heroX < edge) {
         $('#home-banner').carousel(((currentIndex - 1) % 3 + 3) % 3);
         heroX = stageWidth - edge - 50;
+        transitioning = true;
+        $('#home-banner').animate({'background-position-x': 100 * heroX / stageWidth + '%', 'background-position-y': '100%'}, function() {transitioning = false;});
       } else if (heroX > stageWidth - edge) {
         $('#home-banner').carousel((currentIndex + 1) % 3);
         heroX = edge + 50;
+        transitioning = true;
+        $('#home-banner').animate({'background-position-x': 100 * heroX / stageWidth + '%', 'background-position-y': '100%'}, function() {transitioning = false;});
+      }
+
+      // Move background
+      if (!transitioning) {
+        $('#home-banner').css({'background-position-x': 100 * heroX / stageWidth + '%', 'background-position-y': '100%'});
       }
 
       // Actually move sprite
