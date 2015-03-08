@@ -25,6 +25,7 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/project/main/templates" />
+        <option value="$MODULE_DIR$/project/gds_facebook/templates" />
       </list>
     </option>
   </component>
