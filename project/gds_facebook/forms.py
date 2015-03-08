@@ -10,6 +10,5 @@ class FacebookAccessInput(TextInput):
     """
 
     def render(self, name, value, attrs=None):
-        attrs.update({'size': 120})
         return (TextInput.render(self, name, value, attrs) +
                 render_to_string('facebook_login.html', {'app_id': settings.FACEBOOK_APP_ID}))
