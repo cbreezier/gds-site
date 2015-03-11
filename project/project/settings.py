@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gds_facebook',
+    'facebook',
     'main',
 )
 
@@ -86,3 +86,4 @@ STATIC_URL = '/static/'
 
 FACEBOOK_APP_ID = '326918950831371'
 FACEBOOK_APP_SECRET = 'e9955c5b0dd7c700c5bab2faa08d03fb'
+FACEBOOK_GROUP_ID = '185233411589007'
